@@ -1,0 +1,42 @@
+﻿@model CMSProject.Models.OrderReport
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>OrderReport</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedDay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedDay)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Interest)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Interest)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.OrderReportID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

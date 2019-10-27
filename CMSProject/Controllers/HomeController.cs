@@ -15,14 +15,14 @@ namespace CMSProject.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Về chúng tôi";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Thông tin liên lạc ";
 
             return View();
         }

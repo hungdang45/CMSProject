@@ -25,6 +25,9 @@ namespace CMSProject
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+            bundles.Add(new StyleBundle("~/Content/admin/css"));
+            bundles.Add(new StyleBundle("~/Content/admin1/assets/css"));
+            bundles.Add(new StyleBundle("~/Content/customer/css"));
         }
     }
 }
