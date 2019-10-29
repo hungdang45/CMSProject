@@ -16,9 +16,11 @@ namespace CMSProject.Controllers
         private CMSEntities db = new CMSEntities();
 
         // GET: Products
-       
+
+        [Authorize,]
         public ActionResult Index()
         {
+            
             var products = db.Products.Include(p => p.Category).Include(p => p.Supplier);
             return View(products.ToList());
         }
@@ -41,9 +43,10 @@ namespace CMSProject.Controllers
         // GET: Products/Create
         public ActionResult Create()
         {
+            var viewModel = new Product { DateCreated = DateTime.Now };
             ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "CategoryName");
             ViewBag.SupplierID = new SelectList(db.Suppliers, "SupplierID", "SupplierName");
-            return View();
+            return View(viewModel);
         }
 
         // POST: Products/Create
@@ -69,7 +72,7 @@ namespace CMSProject.Controllers
             //Modified code
             var temp = formValues["editor"];
             byte[] bytes;
-            product.DateCreated = Convert.ToDateTime(string.Format("Item Created on {0:MM/dd/yyyy}", DateTime.Today));
+            
 
             CMSEntities entities = new CMSEntities();
             try
