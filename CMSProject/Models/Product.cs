@@ -28,7 +28,7 @@ namespace CMSProject.Models
         public string Size { get; set; }
         public string Description { get; set; }
         public Nullable<double> InputPrice { get; set; }
-        public Nullable<double> Price { get; set; }
+        public decimal Price { get; set; }
         public string ProductCode { get; set; }
         public Nullable<int> Quantity { get; set; }
         public string Status { get; set; }

@@ -26,5 +26,11 @@ namespace CMSProject.Controllers
 
             return View();
         }
+
+        [HttpGet]
+        public ActionResult Registration()
+        {
+            return View();
+        }
     }
 }

@@ -6,7 +6,10 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using CMSProject.Models;
+
+
 
 namespace CMSProject.Controllers
 {
@@ -114,6 +117,173 @@ namespace CMSProject.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        [HttpGet]
+        public ActionResult Registration()
+        {
+            return View();
+        }
+        //Registration POST action 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Registration([Bind(Exclude = "IsEmailVerified,ActivationCode")] Customer customer)
+        {
+            bool Status = false;
+            string message = "";
+           
+            //
+            // Model Validation 
+            if (ModelState.IsValid)
+            {
+
+                #region //Email is already Exist 
+                var isExist = IsEmailExist(customer.Email);
+                if (isExist)
+                {
+                    ModelState.AddModelError("EmailExist", "Email already exist");
+                    return View(customer);
+                }
+                #endregion
+
+                #region Generate Activation Code 
+                customer.ActivationCode = Guid.NewGuid();
+                #endregion
+
+               
+                customer.Password = Crypto.Hash(customer.Password);
+              
+               
+                customer.IsEmailVerified = false;
+
+                #region Save to Database
+                using (CMSEntities db = new CMSEntities())
+                {
+                    db.Customers.Add(customer);
+                    db.SaveChanges();
+
+                    //Send Email to User
+                    //SendVerificationLinkEmail(user.EmailID, user.ActivationCode.ToString());
+                    //message = "Registration successfully done. Account activation link " +
+                    //    " has been sent to your email id:" + user.EmailID;
+                    //Status = true;
+                }
+                #endregion
+            }
+            else
+            {
+                message = "Invalid Request";
+            }
+
+            ViewBag.Message = message;
+            ViewBag.Status = Status;
+            return View(customer);
+        }
+        //Verify Account  
+
+        //[HttpGet]
+        //public ActionResult VerifyAccount(string id)
+        //{
+        //    bool Status = false;
+        //    using (MyDatabaseEntities dc = new MyDatabaseEntities())
+        //    {
+        //        dc.Configuration.ValidateOnSaveEnabled = false; // This line I have added here to avoid 
+        //                                                        // Confirm password does not match issue on save changes
+        //        var v = dc.Users.Where(a => a.ActivationCode == new Guid(id)).FirstOrDefault();
+        //        if (v != null)
+        //        {
+        //            v.IsEmailVerified = true;
+        //            dc.SaveChanges();
+        //            Status = true;
+        //        }
+        //        else
+        //        {
+        //            ViewBag.Message = "Invalid Request";
+        //        }
+        //    }
+        //    ViewBag.Status = Status;
+        //    return View();
+        //}
+
+        //Login
+        [HttpGet]
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        //Login POST
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Login(CustomerLogin login, string ReturnUrl = "")
+        {
+            string message = "";
+            using (CMSEntities db = new CMSEntities())
+            {
+                var v = db.Customers.Where(a => a.Email == login.Email).FirstOrDefault();
+                if (v != null)
+                {
+                    if (v.IsEmailVerified ??false)
+                        
+                        {
+                        ViewBag.Message = "Please verify your email first";
+                        return View();
+                    }
+
+                    if (string.Compare(Crypto.Hash(login.Password), v.Password) == 0)
+                    {
+                        // 525600 min = 1 year
+                        int timeout = login.RememberMe ? 525600 : 20;
+                        var ticket = new FormsAuthenticationTicket(login.Email, login.RememberMe, timeout);
+                        string encrypted = FormsAuthentication.Encrypt(ticket);
+                        var cookie = new HttpCookie(FormsAuthentication.FormsCookieName, encrypted);
+                        cookie.Expires = DateTime.Now.AddMinutes(timeout);
+                        cookie.HttpOnly = true;
+                        Response.Cookies.Add(cookie);
+
+
+                        if (Url.IsLocalUrl(ReturnUrl))
+                        {
+                            return Redirect(ReturnUrl);
+                        }
+                        else
+                        {
+                            return RedirectToAction("Index", "Home");
+                        }
+                    }
+                    else
+                    {
+                        message = "Invalid credential provided";
+                    }
+                }
+                else
+                {
+                    message = "Invalid credential provided";
+                }
+            }
+            ViewBag.Message = message;
+            return View();
+        }
+
+        //Logout
+        [Authorize]
+        [HttpPost]
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Login", "Customers");
+        }
+
+
+        [NonAction]
+        public bool IsEmailExist(string emailID)
+        {
+            using (CMSEntities dc = new CMSEntities())
+            {
+                var v = dc.Customers.Where(a => a.CustomerName == emailID).FirstOrDefault();
+                return v != null;
+            }
+        }    
+      
 
         protected override void Dispose(bool disposing)
         {

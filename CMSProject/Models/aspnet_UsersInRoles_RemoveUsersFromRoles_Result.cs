@@ -10,16 +10,10 @@
 namespace CMSProject.Models
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class OrderDetail
+    public partial class aspnet_UsersInRoles_RemoveUsersFromRoles_Result
     {
-        public int ProductID { get; set; }
-        public int OrderID { get; set; }
-        public Nullable<int> QuantityOrder { get; set; }
-        public Nullable<decimal> UnitPrice { get; set; }
-    
-        public virtual Order Order { get; set; }
-        public virtual Product Product { get; set; }
+        public string Column1 { get; set; }
+        public string Name { get; set; }
     }
 }

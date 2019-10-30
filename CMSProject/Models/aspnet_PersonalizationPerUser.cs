@@ -12,14 +12,15 @@ namespace CMSProject.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class OrderDetail
+    public partial class aspnet_PersonalizationPerUser
     {
-        public int ProductID { get; set; }
-        public int OrderID { get; set; }
-        public Nullable<int> QuantityOrder { get; set; }
-        public Nullable<decimal> UnitPrice { get; set; }
+        public System.Guid Id { get; set; }
+        public Nullable<System.Guid> PathId { get; set; }
+        public Nullable<System.Guid> UserId { get; set; }
+        public byte[] PageSettings { get; set; }
+        public System.DateTime LastUpdatedDate { get; set; }
     
-        public virtual Order Order { get; set; }
-        public virtual Product Product { get; set; }
+        public virtual aspnet_Paths aspnet_Paths { get; set; }
+        public virtual aspnet_Users aspnet_Users { get; set; }
     }
 }

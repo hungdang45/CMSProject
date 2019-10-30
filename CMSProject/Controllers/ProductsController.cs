@@ -17,7 +17,7 @@ namespace CMSProject.Controllers
 
         // GET: Products
 
-        [Authorize,]
+       
         public ActionResult Index()
         {
             

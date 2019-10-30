@@ -59,6 +59,9 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers.Crypto, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Web.Helpers.Crypto.3.2.3\lib\net40\System.Web.Helpers.Crypto.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
@@ -186,10 +189,59 @@
     <Compile Include="Controllers\PromotionsController.cs" />
     <Compile Include="Controllers\ReceiptsController.cs" />
     <Compile Include="Controllers\SuppliersController.cs" />
+    <Compile Include="Crypto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\aspnet_Applications.cs">
+      <DependentUpon>CMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\aspnet_Membership.cs">
+      <DependentUpon>CMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\aspnet_Membership_GetPasswordWithFormat_Result.cs">
+      <DependentUpon>CMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\aspnet_Membership_GetPassword_Result.cs">
+      <DependentUpon>CMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\aspnet_Membership_GetUserByName_Result.cs">
+      <DependentUpon>CMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\aspnet_Membership_GetUserByUserId_Result.cs">
+      <DependentUpon>CMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\aspnet_Paths.cs">
+      <DependentUpon>CMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\aspnet_PersonalizationAllUsers.cs">
+      <DependentUpon>CMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\aspnet_PersonalizationPerUser.cs">
+      <DependentUpon>CMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\aspnet_Profile.cs">
+      <DependentUpon>CMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\aspnet_Profile_GetProperties_Result.cs">
+      <DependentUpon>CMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\aspnet_Roles.cs">
+      <DependentUpon>CMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\aspnet_SchemaVersions.cs">
+      <DependentUpon>CMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\aspnet_Users.cs">
+      <DependentUpon>CMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\aspnet_UsersInRoles_RemoveUsersFromRoles_Result.cs">
+      <DependentUpon>CMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\aspnet_WebEvent_Events.cs">
+      <DependentUpon>CMS.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Blog.cs">
       <DependentUpon>CMS.tt</DependentUpon>
     </Compile>
@@ -217,6 +269,8 @@
     <Compile Include="Models\Customer.cs">
       <DependentUpon>CMS.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CustomerLogin.cs" />
+    <Compile Include="Models\Extended\Customer.cs" />
     <Compile Include="Models\Feedback.cs">
       <DependentUpon>CMS.tt</DependentUpon>
     </Compile>
@@ -225,6 +279,7 @@
     <Compile Include="Models\Order.cs">
       <DependentUpon>CMS.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\OrderDateGroup.cs" />
     <Compile Include="Models\OrderDetail.cs">
       <DependentUpon>CMS.tt</DependentUpon>
     </Compile>
@@ -240,6 +295,9 @@
     <Compile Include="Models\Receipt.cs">
       <DependentUpon>CMS.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ShoppingCart.cs" />
+    <Compile Include="Models\ShoppingCartRemoveViewModel.cs" />
+    <Compile Include="Models\ShoppingCartViewModel.cs" />
     <Compile Include="Models\sp_helpdiagramdefinition_Result.cs">
       <DependentUpon>CMS.tt</DependentUpon>
     </Compile>
@@ -253,6 +311,33 @@
       <DependentUpon>CMS.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\View_1.cs">
+      <DependentUpon>CMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vw_aspnet_Applications.cs">
+      <DependentUpon>CMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vw_aspnet_MembershipUsers.cs">
+      <DependentUpon>CMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vw_aspnet_Profiles.cs">
+      <DependentUpon>CMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vw_aspnet_Roles.cs">
+      <DependentUpon>CMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vw_aspnet_Users.cs">
+      <DependentUpon>CMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vw_aspnet_UsersInRoles.cs">
+      <DependentUpon>CMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vw_aspnet_WebPartState_Paths.cs">
+      <DependentUpon>CMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vw_aspnet_WebPartState_Shared.cs">
+      <DependentUpon>CMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vw_aspnet_WebPartState_User.cs">
       <DependentUpon>CMS.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -4320,6 +4405,7 @@
     <Content Include="Content\customer\webfonts\fa-regular-400.svg" />
     <Content Include="Content\customer\webfonts\fa-solid-900.svg" />
     <Content Include="Content\Uploads\Capture.JPG" />
+    <Content Include="Content\Uploads\lienhe.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -4336,13 +4422,6 @@
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\CMS.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>CMS.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\CMS.edmx.diagram">
-      <DependentUpon>CMS.edmx</DependentUpon>
-    </Content>
     <Content Include="Content\admin\.browserslistrc" />
     <Content Include="Content\admin\.gitignore" />
     <Content Include="Content\admin\.travis.yml" />
@@ -5610,6 +5689,13 @@
     <Content Include="Scripts\esm\popper-utils.min.js.map" />
     <Content Include="Scripts\esm\popper-utils.js.map" />
     <Content Include="Scripts\ckeditor\ckeditor.pack" />
+    <EntityDeploy Include="Models\CMS.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CMS.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\CMS.edmx.diagram">
+      <DependentUpon>CMS.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -5737,6 +5823,9 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Carts\Checkout.cshtml" />
     <Content Include="Views\Shared\Contact.cshtml" />
+    <Content Include="Views\Home\Registration.cshtml" />
+    <Content Include="Views\Customers\Registration.cshtml" />
+    <Content Include="Views\Customers\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

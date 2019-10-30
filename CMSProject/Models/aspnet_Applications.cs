@@ -12,32 +12,29 @@ namespace CMSProject.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Customer
+    public partial class aspnet_Applications
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Customer()
+        public aspnet_Applications()
         {
-            this.Feedbacks = new HashSet<Feedback>();
-            this.Orders = new HashSet<Order>();
-            this.Receipts = new HashSet<Receipt>();
+            this.aspnet_Membership = new HashSet<aspnet_Membership>();
+            this.aspnet_Paths = new HashSet<aspnet_Paths>();
+            this.aspnet_Roles = new HashSet<aspnet_Roles>();
+            this.aspnet_Users = new HashSet<aspnet_Users>();
         }
     
-        public int CustomerID { get; set; }
-        public string CustomerName { get; set; }
-        public string Address { get; set; }
-        public string Phone { get; set; }
-        public string Email { get; set; }
-        public string Password { get; set; }
-        public string City { get; set; }
-        public string Country { get; set; }
-        public Nullable<bool> IsEmailVerified { get; set; }
-        public Nullable<System.Guid> ActivationCode { get; set; }
+        public string ApplicationName { get; set; }
+        public string LoweredApplicationName { get; set; }
+        public System.Guid ApplicationId { get; set; }
+        public string Description { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Feedback> Feedbacks { get; set; }
+        public virtual ICollection<aspnet_Membership> aspnet_Membership { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Order> Orders { get; set; }
+        public virtual ICollection<aspnet_Paths> aspnet_Paths { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Receipt> Receipts { get; set; }
+        public virtual ICollection<aspnet_Roles> aspnet_Roles { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<aspnet_Users> aspnet_Users { get; set; }
     }
 }
