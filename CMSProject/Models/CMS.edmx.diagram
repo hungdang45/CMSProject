@@ -4,40 +4,40 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="10d1ac6068974a07b4cf0b4b9b44b18e" Name="Diagram1">
-        <EntityTypeShape EntityType="CMSModel.aspnet_Applications" Width="1.5" PointX="10.75" PointY="7.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="CMSModel.aspnet_Membership" Width="1.5" PointX="16" PointY="9.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="CMSModel.aspnet_Paths" Width="1.5" PointX="13" PointY="6.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="CMSModel.aspnet_PersonalizationAllUsers" Width="1.5" PointX="15.25" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CMSModel.aspnet_PersonalizationPerUser" Width="1.5" PointX="15.25" PointY="3.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="CMSModel.aspnet_Profile" Width="1.5" PointX="20.5" PointY="11.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="CMSModel.aspnet_Roles" Width="1.5" PointX="13" PointY="15.75" IsExpanded="true" />
+      <Diagram DiagramId="e5c30d1279b341c88a809730483d7433" Name="Diagram1">
+        <EntityTypeShape EntityType="CMSModel.aspnet_Applications" Width="1.5" PointX="11.75" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMSModel.aspnet_Membership" Width="1.5" PointX="17" PointY="18.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMSModel.aspnet_Paths" Width="1.5" PointX="14" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMSModel.aspnet_PersonalizationAllUsers" Width="1.5" PointX="16.25" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMSModel.aspnet_PersonalizationPerUser" Width="1.5" PointX="16.25" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMSModel.aspnet_Profile" Width="1.5" PointX="21.5" PointY="20.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMSModel.aspnet_Roles" Width="1.5" PointX="14" PointY="24.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CMSModel.aspnet_SchemaVersions" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CMSModel.aspnet_Users" Width="1.5" PointX="18.25" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMSModel.aspnet_Users" Width="1.5" PointX="19.25" PointY="20.375" IsExpanded="true" />
         <EntityTypeShape EntityType="CMSModel.aspnet_WebEvent_Events" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CMSModel.Blog" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="CMSModel.Category" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CMSModel.Customer" Width="1.5" PointX="3.75" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CMSModel.Feedback" Width="1.5" PointX="6" PointY="16.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="CMSModel.Order" Width="1.5" PointX="6" PointY="12.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="CMSModel.OrderDetail" Width="1.5" PointX="8.25" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CMSModel.OrderReport" Width="1.5" PointX="3.75" PointY="15" IsExpanded="true" />
-        <EntityTypeShape EntityType="CMSModel.Product" Width="1.5" PointX="6" PointY="4.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="CMSModel.Promotion" Width="1.5" PointX="8.25" PointY="7.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="CMSModel.Receipt" Width="1.5" PointX="6" PointY="19.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="CMSModel.Supplier" Width="1.5" PointX="3.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMSModel.Blog" Width="1.5" PointX="3" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMSModel.Cart" Width="1.5" PointX="8.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMSModel.Category" Width="1.5" PointX="0.75" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMSModel.Customer" Width="1.5" PointX="6.75" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMSModel.Feedback" Width="1.5" PointX="9" PointY="20" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMSModel.Order" Width="1.5" PointX="9" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMSModel.OrderDetail" Width="1.5" PointX="11.25" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMSModel.OrderReport" Width="1.5" PointX="6.75" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMSModel.Product" Width="1.5" PointX="6" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMSModel.Promotion" Width="1.5" PointX="8.25" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMSModel.Receipt" Width="1.5" PointX="9" PointY="22.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMSModel.Supplier" Width="1.5" PointX="3.75" PointY="1.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CMSModel.sysdiagram" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CMSModel.Cart" Width="1.5" PointX="8.25" PointY="10" IsExpanded="true" />
         <EntityTypeShape EntityType="CMSModel.View_1" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CMSModel.vw_aspnet_Applications" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CMSModel.vw_aspnet_MembershipUsers" Width="1.5" PointX="8.75" PointY="13.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CMSModel.vw_aspnet_Profiles" Width="1.5" PointX="10.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CMSModel.vw_aspnet_Roles" Width="1.5" PointX="11.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CMSModel.vw_aspnet_Users" Width="1.5" PointX="10.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMSModel.vw_aspnet_MembershipUsers" Width="1.5" PointX="2.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMSModel.vw_aspnet_Profiles" Width="1.5" PointX="4.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMSModel.vw_aspnet_Roles" Width="1.5" PointX="10.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMSModel.vw_aspnet_Users" Width="1.5" PointX="11.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CMSModel.vw_aspnet_UsersInRoles" Width="1.5" PointX="12.75" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CMSModel.vw_aspnet_WebPartState_Paths" Width="1.5" PointX="12.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMSModel.vw_aspnet_WebPartState_Paths" Width="1.5" PointX="11.75" PointY="12.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CMSModel.vw_aspnet_WebPartState_Shared" Width="1.5" PointX="13.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CMSModel.vw_aspnet_WebPartState_User" Width="1.5" PointX="0.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMSModel.vw_aspnet_WebPartState_User" Width="1.5" PointX="13.75" PointY="3.75" IsExpanded="true" />
         <AssociationConnector Association="CMSModel.FK__aspnet_Me__Appli__1B5E0D89" ManuallyRouted="false" />
         <AssociationConnector Association="CMSModel.FK__aspnet_Pa__Appli__4CF5691D" ManuallyRouted="false" />
         <AssociationConnector Association="CMSModel.FK__aspnet_Ro__Appli__39E294A9" ManuallyRouted="false" />
@@ -48,6 +48,7 @@
         <AssociationConnector Association="CMSModel.FK__aspnet_Pe__UserI__5772F790" ManuallyRouted="false" />
         <AssociationConnector Association="CMSModel.FK__aspnet_Pr__UserI__30592A6F" ManuallyRouted="false" />
         <AssociationConnector Association="CMSModel.FK_Blog_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="CMSModel.FK_Carts_Product" ManuallyRouted="false" />
         <AssociationConnector Association="CMSModel.FK_Product_Category" ManuallyRouted="false" />
         <AssociationConnector Association="CMSModel.FK_Feedback_Customer" ManuallyRouted="false" />
         <AssociationConnector Association="CMSModel.FK_Order_Customer" ManuallyRouted="false" />
@@ -55,7 +56,6 @@
         <AssociationConnector Association="CMSModel.FK_Order_OrderReport1" ManuallyRouted="false" />
         <AssociationConnector Association="CMSModel.FK_ProductOrderMapping_Order" ManuallyRouted="false" />
         <AssociationConnector Association="CMSModel.FK_ProductOrderDetail_Product" ManuallyRouted="false" />
-        <AssociationConnector Association="CMSModel.FK_Carts_Product" ManuallyRouted="false" />
         <AssociationConnector Association="CMSModel.FK_Product_Supplier" ManuallyRouted="false" />
         <AssociationConnector Association="CMSModel.FK_Promotion_Product" ManuallyRouted="false" />
         <AssociationConnector Association="CMSModel.aspnet_UsersInRoles" ManuallyRouted="false" />
