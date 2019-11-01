@@ -1,9 +1,8 @@
 ﻿@model IEnumerable<CMSProject.Models.Supplier>
-
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/admin1.cshtml";
 }
-
 <h2>Index</h2>
 
 <p>
@@ -29,29 +28,30 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.SupplierName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.OtherDetails)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ContactAddress)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ContactEmail)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ContactPhone)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.SupplierID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.SupplierID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.SupplierID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SupplierName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OtherDetails)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ContactAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ContactEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ContactPhone)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.SupplierID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.SupplierID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.SupplierID })
+            </td>
+        </tr>
+    }
 
 </table>

@@ -1,7 +1,8 @@
 ﻿@model CMSProject.Models.OrderReport
 
 @{
-    ViewBag.Title = "Edit";
+
+    Layout = "~/Views/Shared/admin1.cshtml";
 }
 
 <h2>Edit</h2>
@@ -10,7 +11,7 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>OrderReport</h4>
         <hr />

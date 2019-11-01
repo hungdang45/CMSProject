@@ -1,9 +1,9 @@
 ﻿@model IEnumerable<CMSProject.Models.Promotion>
 
 @{
-    ViewBag.Title = "Index";
+  
+    Layout = "~/Views/Shared/admin1.cshtml";
 }
-
 <h2>Index</h2>
 
 <p>
@@ -23,23 +23,24 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.PromotionName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PromotionImage)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Product.ProductName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.PromotionID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.PromotionID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.PromotionID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PromotionName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PromotionImage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.ProductName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.PromotionID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.PromotionID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.PromotionID })
+            </td>
+        </tr>
+    }
 
 </table>

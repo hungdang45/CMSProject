@@ -1,13 +1,9 @@
 ﻿@model IEnumerable<CMSProject.Models.Product>
 
-
-
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/admin1.cshtml";
 }
-
-
 
 @*<h2>Index</h2>*@
 
@@ -25,7 +21,7 @@
             var recordToAdd = $(this).attr("data-id");
             if (recordToAdd != '') {
                 // Perform the ajax post
-                $.post("/ShoppingCart/AddToCart", { "id": recordToAdd },
+                $.post("/Carts/AddToCart", { "id": recordToAdd },
                     function (data) {
                         $('#cart-status').text(data.CartCount);
                     });
@@ -50,7 +46,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Continue</button>
-                <button type="submit" class="btn btn-primary" onclick="location.href='@Url.Action("Index", "ShoppingCart")'">Check Out</button>
+                <button type="submit" class="btn btn-primary" onclick="location.href='@Url.Action("Index", "Carts")'">Check Out</button>
             </div>
         </div>
     </div>

@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/admin1.cshtml";
 }
 
 <h2>Index</h2>
@@ -23,23 +24,24 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.CustomerID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreatedDay)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Interest)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.OrderReportID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.OrderReportID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.OrderReportID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDay)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Interest)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.OrderReportID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.OrderReportID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.OrderReportID })
+            </td>
+        </tr>
+    }
 
 </table>

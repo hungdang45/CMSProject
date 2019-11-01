@@ -28,7 +28,10 @@ namespace CMSProject.Models
         public Nullable<System.DateTime> ShippedDate { get; set; }
         public string ShippingStatus { get; set; }
         public Nullable<int> OrderReportID { get; set; }
-        public Nullable<decimal> Total { get; set; }
+        public decimal Total { get; set; }
+        public string Username { get; set; }
+        public bool SaveInfo { get; set; }
+        public string Email { get; set; }
     
         public virtual Customer Customer { get; set; }
         public virtual OrderReport OrderReport { get; set; }

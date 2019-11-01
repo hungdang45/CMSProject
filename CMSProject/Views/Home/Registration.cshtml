@@ -1,9 +1,16 @@
 ﻿@model CMSProject.Models.Customer
 
-@using (Html.BeginForm()) 
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/admin1.cshtml";
+}
+
+
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Customer</h4>
         <hr />

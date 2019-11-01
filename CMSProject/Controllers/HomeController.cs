@@ -27,6 +27,13 @@ namespace CMSProject.Controllers
             return View();
         }
 
+        public ActionResult Error()
+        {
+            ViewBag.Message = "Trang ban ";
+
+            return View();
+        }
+
         [HttpGet]
         public ActionResult Registration()
         {

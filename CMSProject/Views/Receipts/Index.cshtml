@@ -1,7 +1,8 @@
 ﻿@model IEnumerable<CMSProject.Models.Receipt>
 
 @{
-    ViewBag.Title = "Index";
+   
+    Layout = "~/Views/Shared/admin1.cshtml";
 }
 
 <h2>Index</h2>
@@ -32,32 +33,33 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ReceiptName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreatedDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TotalPrice)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.OrderID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Status)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Customer.CustomerName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ReceiptID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ReceiptID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ReceiptID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReceiptName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer.CustomerName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ReceiptID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ReceiptID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ReceiptID })
+            </td>
+        </tr>
+    }
 
 </table>

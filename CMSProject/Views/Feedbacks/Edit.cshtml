@@ -1,16 +1,16 @@
 ﻿@model CMSProject.Models.Feedback
 
 @{
-    ViewBag.Title = "Edit";
-}
 
+    Layout = "~/Views/Shared/admin1.cshtml";
+}
 <h2>Edit</h2>
 
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Feedback</h4>
         <hr />

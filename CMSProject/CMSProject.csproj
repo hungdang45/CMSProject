@@ -48,6 +48,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="RestSharp, Version=106.6.10.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.106.6.10\lib\net452\RestSharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -174,10 +177,14 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Configuration\AppConfigurations.cs" />
+    <Compile Include="Configuration\IConfiguration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AccountsController.cs" />
     <Compile Include="Controllers\BlogsController.cs" />
     <Compile Include="Controllers\CartsController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
+    <Compile Include="Controllers\CheckoutController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\FeedbacksController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -192,6 +199,9 @@
     <Compile Include="Crypto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Account.cs">
+      <DependentUpon>CMS.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\aspnet_Applications.cs">
@@ -374,6 +384,7 @@
     <Content Include="Content\admin1\images\avatar\4.jpg" />
     <Content Include="Content\admin1\images\avatar\5.jpg" />
     <Content Include="Content\admin1\images\avatar\6.jpg" />
+    <Content Include="Content\admin1\images\logo.JPG" />
     <Content Include="Content\admin1\images\logo.png" />
     <Content Include="Content\admin1\images\logo2.png" />
     <Content Include="Content\admin1\images\placeholder.png" />
@@ -4404,8 +4415,10 @@
     <Content Include="Content\customer\webfonts\fa-brands-400.svg" />
     <Content Include="Content\customer\webfonts\fa-regular-400.svg" />
     <Content Include="Content\customer\webfonts\fa-solid-900.svg" />
+    <Content Include="Content\Uploads\616857123694837780.png" />
     <Content Include="Content\Uploads\Capture.JPG" />
     <Content Include="Content\Uploads\lienhe.jpg" />
+    <Content Include="Content\Uploads\Npc_sd_3040145000_02.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -5826,6 +5839,16 @@
     <Content Include="Views\Home\Registration.cshtml" />
     <Content Include="Views\Customers\Registration.cshtml" />
     <Content Include="Views\Customers\Login.cshtml" />
+    <Content Include="Views\Checkout\CreateOrder.cshtml" />
+    <Content Include="Views\Checkout\CompleteOrder.cshtml" />
+    <Content Include="Views\Home\Error.cshtml" />
+    <Content Include="Views\Accounts\Create.cshtml" />
+    <Content Include="Views\Accounts\Delete.cshtml" />
+    <Content Include="Views\Accounts\Details.cshtml" />
+    <Content Include="Views\Accounts\Edit.cshtml" />
+    <Content Include="Views\Accounts\Index.cshtml" />
+    <Content Include="Views\Accounts\Login.cshtml" />
+    <Content Include="Views\Shared\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
