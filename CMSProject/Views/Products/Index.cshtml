@@ -11,24 +11,7 @@
     @Html.ActionLink("Create New", "Create")
 </p>
 
-<script src="~/Scripts/ckeditor/ckeditor.js"></script>
 
-<script type="text/javascript">
-    $(function () {
-        // Document.ready -> link up remove event handler
-        $(".AddLink").click(function () {
-            // Get the id from the link
-            var recordToAdd = $(this).attr("data-id");
-            if (recordToAdd != '') {
-                // Perform the ajax post
-                $.post("/Carts/AddToCart", { "id": recordToAdd },
-                    function (data) {
-                        $('#cart-status').text(data.CartCount);
-                    });
-            }
-        });
-    });
-</script>
 
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div aria-hidden="true" class="alert alert-dismissable alert-success">
@@ -100,8 +83,8 @@
                                         @Html.DisplayNameFor(model => model.Material)
                                     </th>
                                     @*<th>
-                                            @Html.DisplayNameFor(model => model.ProductImage)
-                                        </th>*@
+            @Html.DisplayNameFor(model => model.ProductImage)
+        </th>*@
                                     <th>
                                         @Html.DisplayNameFor(model => model.ImageUpload)
                                     </th>
@@ -116,98 +99,99 @@
                                         @Html.DisplayNameFor(model => model.Supplier.SupplierName)
                                     </th>
                                     <th>  @Html.DisplayNameFor(model => model.DateCreated)</th>
+                                    <th> Tùy chọn </th>
                                 </tr>
 
                                 @foreach (var item in Model)
                                 {
-                                <tr>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.ProductName)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Brand)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Size)
-                                    </td>
-                                    @*<td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>*@
-                                    <td>  @Html.Raw(item.Description)</td>
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ProductName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Brand)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Size)
+                                        </td>
+                                        @*<td>
+                                                @Html.DisplayFor(modelItem => item.Description)
+                                            </td>*@
+                                        <td>  @Html.Raw(item.Description)</td>
 
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.InputPrice)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Price)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.ProductCode)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Quantity)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Status)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Height)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Material)
-                                    </td>
-                                    @*<td>
-            @Html.DisplayFor(modelItem => item.ProductImage)
-        </td>*@
-                                    @*<td>
-            @Html.DisplayFor(modelItem => item.ImageUpload)
-        </td>*@
-                                    <td>
-                                        @if (item.ImageUpload != null)
-                                        {
-                                            var base64 = Convert.ToBase64String(item.ImageUpload);
-                                            var imgsrc = string.Format("data:image/jpg;base64,{0}", base64);
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.InputPrice)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Price)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ProductCode)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Quantity)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Status)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Height)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Material)
+                                        </td>
+                                        @*<td>
+                                                @Html.DisplayFor(modelItem => item.ProductImage)
+                                            </td>*@
+                                        @*<td>
+                                                @Html.DisplayFor(modelItem => item.ImageUpload)
+                                            </td>*@
+                                        <td>
+                                            @if (item.ImageUpload != null)
+                                            {
+                                                var base64 = Convert.ToBase64String(item.ImageUpload);
+                                                var imgsrc = string.Format("data:image/jpg;base64,{0}", base64);
 
-                                            <img src="data:image;base64,@System.Convert.ToBase64String(item.ImageUpload)" alt="" width="150" height="125" />
-                                        }
-                                        else
-                                        {
-                                            <img src="~/App_Data/uploads/Capture.JPG"
-                                                 style="max-width:100px;max-height:100px" / >
-                                        }
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Color)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Category.CategoryName)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Supplier.SupplierName)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.DateCreated)
-                                    </td>
-                                    <td>
-                                        @Html.ActionLink("Edit", "Edit", new { id = item.ProductID }) |
-                                        @Html.ActionLink("Details", "Details", new { id = item.ProductID }) |
-                                        @Html.ActionLink("Delete", "Delete", new { id = item.ProductID })
-                                    </td>
-                                    <td>
-                                        <a href="#" class="AddLink"
-                                           data-id="@item.ProductID" data-toggle="modal" data-target="#myModal">
-                                            Add
-                                            to cart
-                                        </a>
-                                        <!--@Html.ActionLink("Add to cart", "AddToCart", "Carts", new { id = item.ProductID }, new { htmlAttributes = new { @data_toggle = "modal", @data_target = "#myModal" } })--> |
-                                        @Html.ActionLink("Details", "Details", new { id = item.ProductID })
-                                        @if (Request.IsAuthenticated && User.IsInRole("Admin"))
-                                        {
-                                            @Html.ActionLink("Edit", "Edit", new { id = item.ProductID })
+                                                <img src="data:image;base64,@System.Convert.ToBase64String(item.ImageUpload)" alt="" width="150" height="125" />
+                                            }
+                                            else
+                                            {
+                                                <img src="~/App_Data/uploads/Capture.JPG"
+                                                     style="max-width:100px;max-height:100px" / >
+                                            }
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Color)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Category.CategoryName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Supplier.SupplierName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.DateCreated)
+                                        </td>
+                                        <td>
+                                            @Html.ActionLink("Edit", "Edit", new { id = item.ProductID }) |
+                                            @Html.ActionLink("Details", "Details", new { id = item.ProductID }) |
                                             @Html.ActionLink("Delete", "Delete", new { id = item.ProductID })
-                                        }
-                                    </td>
-                                </tr>
+                                        </td>
+                                        <td>
+                                            <a href="#" class="AddLink"
+                                               data-id="@item.ProductID" data-toggle="modal" data-target="#myModal">
+                                                Add
+                                                to cart
+                                            </a>
+                                            <!--@Html.ActionLink("Add to cart", "AddToCart", "Carts", new { id = item.ProductID }, new { htmlAttributes = new { @data_toggle = "modal", @data_target = "#myModal" } })--> |
+                                            @Html.ActionLink("Details", "Details", new { id = item.ProductID })
+                                            @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+                                            {
+                                                @Html.ActionLink("Edit", "Edit", new { id = item.ProductID })
+                                                @Html.ActionLink("Delete", "Delete", new { id = item.ProductID })
+                                            }
+                                        </td>
+                                    </tr>
                                 }
 
                             </table>
@@ -222,7 +206,23 @@
 </div>
 
 
-
+<script src="~/Scripts/ckeditor/ckeditor.js"></script>
+<script type="text/javascript">
+    $(function () {
+        // Document.ready -> link up remove event handler
+        $(".AddLink").click(function () {
+            // Get the id from the link
+            var recordToAdd = $(this).attr("data-id");
+            if (recordToAdd != '') {
+                // Perform the ajax post
+                $.post("/Carts/AddToCart", { "id": recordToAdd },
+                    function (data) {
+                        $('#cart-status').text(data.CartCount);
+                    });
+            }
+        });
+    });
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script type="text/javascript">
     $(function () {

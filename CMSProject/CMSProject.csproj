@@ -390,6 +390,7 @@
     <Content Include="Content\admin1\images\placeholder.png" />
     <Content Include="Content\admin1\images\twitter_corner_black.png" />
     <Content Include="Content\admin1\images\twitter_corner_blue.png" />
+    <Content Include="Content\admin1\images\user.jpg" />
     <Content Include="Content\admin1\index.html" />
     <Content Include="Content\admin1\maps-gmap.html" />
     <Content Include="Content\admin1\maps-vector.html" />
