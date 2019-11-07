@@ -18,7 +18,6 @@ namespace CMSProject.Models
         public Customer()
         {
             this.Feedbacks = new HashSet<Feedback>();
-            this.Orders = new HashSet<Order>();
             this.Receipts = new HashSet<Receipt>();
         }
     
@@ -35,8 +34,6 @@ namespace CMSProject.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Feedback> Feedbacks { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Order> Orders { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Receipt> Receipts { get; set; }
     }

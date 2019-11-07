@@ -10,10 +10,7 @@
         <EntityTypeShape EntityType="CMSModel.Cart" Width="1.5" PointX="8.25" PointY="7.125" IsExpanded="true" />
         <EntityTypeShape EntityType="CMSModel.Category" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CMSModel.Customer" Width="1.5" PointX="6.75" PointY="2.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="CMSModel.Feedback" Width="1.5" PointX="9" PointY="13" IsExpanded="true" />
-        <EntityTypeShape EntityType="CMSModel.Inventory" Width="1.5" PointX="8.25" PointY="10.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="CMSModel.Order" Width="1.5" PointX="9" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CMSModel.OrderDetail" Width="1.5" PointX="11.25" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMSModel.Feedback" Width="1.5" PointX="9.375" PointY="13.625" IsExpanded="true" />
         <EntityTypeShape EntityType="CMSModel.OrderReport" Width="1.5" PointX="6.75" PointY="19.375" IsExpanded="true" />
         <EntityTypeShape EntityType="CMSModel.Product" Width="1.5" PointX="6" PointY="8.125" IsExpanded="true" />
         <EntityTypeShape EntityType="CMSModel.Promotion" Width="1.5" PointX="8.25" PointY="15.75" IsExpanded="true" />
@@ -34,14 +31,11 @@
         <AssociationConnector Association="CMSModel.FK_Carts_Product" ManuallyRouted="false" />
         <AssociationConnector Association="CMSModel.FK_Product_Category" ManuallyRouted="false" />
         <AssociationConnector Association="CMSModel.FK_Feedback_Customer" ManuallyRouted="false" />
-        <AssociationConnector Association="CMSModel.FK_Order_Customer" ManuallyRouted="false" />
         <AssociationConnector Association="CMSModel.FK_Receipt_Customer" ManuallyRouted="false" />
-        <AssociationConnector Association="CMSModel.FK_Inventory_Product" ManuallyRouted="false" />
-        <AssociationConnector Association="CMSModel.FK_Order_OrderReport1" ManuallyRouted="false" />
-        <AssociationConnector Association="CMSModel.FK_ProductOrderMapping_Order" ManuallyRouted="false" />
-        <AssociationConnector Association="CMSModel.FK_ProductOrderDetail_Product" ManuallyRouted="false" />
         <AssociationConnector Association="CMSModel.FK_Product_Supplier" ManuallyRouted="false" />
         <AssociationConnector Association="CMSModel.FK_Promotion_Product" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="CMSModel.OrderDetail" Width="1.5" PointX="10.375" PointY="9.75" />
+        <EntityTypeShape EntityType="CMSModel.Order" Width="1.5" PointX="14.375" PointY="12.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

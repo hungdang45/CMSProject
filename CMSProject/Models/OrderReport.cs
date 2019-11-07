@@ -14,18 +14,9 @@ namespace CMSProject.Models
     
     public partial class OrderReport
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public OrderReport()
-        {
-            this.Orders = new HashSet<Order>();
-        }
-    
         public int OrderReportID { get; set; }
         public string CustomerID { get; set; }
         public Nullable<System.DateTime> CreatedDay { get; set; }
         public Nullable<double> Interest { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Order> Orders { get; set; }
     }
 }

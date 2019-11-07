@@ -199,7 +199,7 @@ namespace CMSProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProductID,ProductName,Brand,Size,Description,InputPrice,Price,ProductCode,Quantity,Status,Height,Material,ProductImage,ImageUpload,SupplierID,Color,CategoryID,DateCreated")] Product product, HttpPostedFileBase file)
+        public ActionResult Edit([Bind(Include = "ProductID,ProductName,Brand,Size,Description,InputPrice,Price,ProductCode,Status,Height,Material,ProductImage,ImageUpload,SupplierID,Color,CategoryID,DateCreated")] Product product, HttpPostedFileBase file)
         {
             //if (ModelState.IsValid)
             //{

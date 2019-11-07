@@ -196,6 +196,7 @@
     <Compile Include="Controllers\FeedbacksController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\OrderDetailsController.cs" />
     <Compile Include="Controllers\OrderReportsController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
@@ -244,10 +245,8 @@
       <DependentUpon>CMS.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\Inventory.cs">
-      <DependentUpon>CMS.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Metadata\Carts.cs" />
     <Compile Include="Models\Order.cs">
       <DependentUpon>CMS.tt</DependentUpon>
     </Compile>
@@ -5822,6 +5821,14 @@
     <Content Include="Views\Products\Index1.cshtml" />
     <Content Include="Views\Products\_Index.cshtml" />
     <Content Include="Views\ListProducts\Index.cshtml" />
+    <Content Include="Views\Order\Create.cshtml" />
+    <Content Include="Views\Order\Delete.cshtml" />
+    <Content Include="Views\Order\Details.cshtml" />
+    <Content Include="Views\Order\Edit.cshtml" />
+    <Content Include="Views\Order\Index.cshtml" />
+    <Content Include="Views\Order\CreateProduct.cshtml" />
+    <Content Include="Views\Order\listProduct.cshtml" />
+    <Content Include="Views\Order\lstOrderProduct.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

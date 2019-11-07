@@ -14,30 +14,22 @@ namespace CMSProject.Models
     
     public partial class Order
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Order()
-        {
-            this.OrderDetails = new HashSet<OrderDetail>();
-        }
-    
         public int OrderID { get; set; }
+        public Nullable<byte> OrderName { get; set; }
         public Nullable<int> CustomerID { get; set; }
-        public string OrderName { get; set; }
-        public Nullable<System.DateTime> OrderDate { get; set; }
-        public string ShipAddress { get; set; }
-        public Nullable<System.DateTime> ShippedDate { get; set; }
-        public string ShippingStatus { get; set; }
-        public Nullable<int> OrderReportID { get; set; }
-        public decimal Total { get; set; }
-        public string Username { get; set; }
-        public bool SaveInfo { get; set; }
-        public string Email { get; set; }
+        public string CustomerName { get; set; }
+        public string CustomerEmail { get; set; }
+        public Nullable<byte> Gender { get; set; }
         public string Phone { get; set; }
-        public System.DateTime Experation { get; set; }
-    
-        public virtual Customer Customer { get; set; }
-        public virtual OrderReport OrderReport { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
+        public string ShipAddress { get; set; }
+        public string OrderCreate { get; set; }
+        public Nullable<System.DateTime> CreateDate { get; set; }
+        public string Shipper { get; set; }
+        public Nullable<System.DateTime> ShipDate { get; set; }
+        public string Receiver { get; set; }
+        public Nullable<System.DateTime> PayDate { get; set; }
+        public Nullable<decimal> Total { get; set; }
+        public string Note { get; set; }
+        public Nullable<byte> Status { get; set; }
     }
 }

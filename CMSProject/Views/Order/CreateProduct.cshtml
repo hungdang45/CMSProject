@@ -1,0 +1,81 @@
+﻿@model CMSProject.Models.Order
+@{
+    ViewBag.Title = "CreateProduct";
+    Layout = "~/Views/Shared/admin1.cshtml";
+}
+
+<div class="col-md-12">
+    <div class="modal-header">
+        <h2>Thông tin khách hàng</h2>
+    </div>
+    <div class="modal-body">
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-3">
+                    <strong>Tên hóa đơn:</strong>
+                </div>
+                <div class="col-md-3">
+                    @if (Model.OrderName == 1)
+                    {
+                        <text>Đơn hàng trực tiếp</text>
+                    }
+                    else
+                    {
+                        if (Model.OrderName == 2)
+                        {
+                            <text>Đơn hàng Online</text>
+                        }
+                    }
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <strong>Tên khách:</strong>
+                </div>
+                <div class="col-md-3">
+                    @Model.CustomerName
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-3">
+                    <strong>Số điện thoại:</strong>
+                </div>
+                <div class="col-md-3">
+                    @Model.Phone
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <strong>Địa chỉ:</strong>
+                </div>
+                <div class="col-md-3">
+                    @Model.ShipAddress
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="col-md-6" style="margin-top:20px;height:500px;border:1px solid #808080; overflow-y:auto;">
+                @Html.Action("listProduct", "Order")
+            </div>
+            <div class="col-md-6" style="margin-top:20px;height:500px;border:1px solid #808080; overflow-y:auto;">
+                @Html.Action("lstOrderProduct", "Order")
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="submit" onclick="save(@Model.OrderID)" style="margin-top:15px;margin-right:24px;" class="btn btn-success">Đặt hàng</button>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <a href="/Order/Index" class="btn btn-primary"> << Quay lại</a>
+</div>
+<script>
+    function save(id) {
+        var f = confirm("Xác nhận đặt hàng");
+        if (f == true) {
+            window.location.href = "/Order/saveToOrderDetails/" + id;
+        }
+    }
+</script>
