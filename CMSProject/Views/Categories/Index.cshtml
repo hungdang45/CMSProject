@@ -7,9 +7,11 @@
 }
 
 
-<p>
+@*<p>
     @Html.ActionLink("Create New", "Create")
-</p>
+</p>*@
+<a href="/tao-moi-danh-muc"  class="elements">Tạo mới danh mục</a>
+
 <table class="table">
     <tr>
         <th>
@@ -37,8 +39,10 @@
                 @Html.DisplayFor(modelItem => item.SubCategory)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.CategoryID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.CategoryID }) |
+                @*@Html.ActionLink("Edit", "Edit", new { id = item.CategoryID }) |*@
+                <a href="/Categories/Edit/@item.CategoryID" class="btn btn-danger">Chỉnh sửa</a>|
+                <a href="/chi-tiet-danh-muc/@item.CategoryID" )" class="elements">Chi tiết</a>|
+                @*@Html.ActionLink("Details", "Details", new { id = item.CategoryID }) |*@
                 @Html.ActionLink("Delete", "Delete", new { id = item.CategoryID })
             </td>
         </tr>

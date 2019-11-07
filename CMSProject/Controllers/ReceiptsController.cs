@@ -17,8 +17,24 @@ namespace CMSProject.Controllers
         // GET: Receipts
         public ActionResult Index()
         {
-            var receipts = db.Receipts.Include(r => r.Customer);
-            return View(receipts.ToList());
+            //var receipts = db.Receipts.Include(r => r.Customer);
+            //return View(receipts.ToList());
+            if (Session["ID"] == null)
+            {
+                return RedirectToAction("Login", "Accounts");
+            }
+            else
+            {
+                int checkRoles = Convert.ToInt32(Session["Roles"]);
+                if (checkRoles == 1)
+                {
+                    return View(db.Receipts.ToList());
+                }
+                else
+                {
+                    return RedirectToAction("Error", "Home");
+                }
+            }
         }
 
         // GET: Receipts/Details/5

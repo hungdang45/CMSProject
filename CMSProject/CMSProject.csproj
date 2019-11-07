@@ -48,6 +48,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="RestSharp, Version=106.6.10.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
       <HintPath>..\packages\RestSharp.106.6.10\lib\net452\RestSharp.dll</HintPath>
     </Reference>
@@ -177,6 +183,7 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Client\Controllers\ListProductsController.cs" />
     <Compile Include="Configuration\AppConfigurations.cs" />
     <Compile Include="Configuration\IConfiguration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -204,54 +211,6 @@
       <DependentUpon>CMS.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\aspnet_Applications.cs">
-      <DependentUpon>CMS.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\aspnet_Membership.cs">
-      <DependentUpon>CMS.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\aspnet_Membership_GetPasswordWithFormat_Result.cs">
-      <DependentUpon>CMS.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\aspnet_Membership_GetPassword_Result.cs">
-      <DependentUpon>CMS.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\aspnet_Membership_GetUserByName_Result.cs">
-      <DependentUpon>CMS.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\aspnet_Membership_GetUserByUserId_Result.cs">
-      <DependentUpon>CMS.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\aspnet_Paths.cs">
-      <DependentUpon>CMS.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\aspnet_PersonalizationAllUsers.cs">
-      <DependentUpon>CMS.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\aspnet_PersonalizationPerUser.cs">
-      <DependentUpon>CMS.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\aspnet_Profile.cs">
-      <DependentUpon>CMS.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\aspnet_Profile_GetProperties_Result.cs">
-      <DependentUpon>CMS.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\aspnet_Roles.cs">
-      <DependentUpon>CMS.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\aspnet_SchemaVersions.cs">
-      <DependentUpon>CMS.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\aspnet_Users.cs">
-      <DependentUpon>CMS.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\aspnet_UsersInRoles_RemoveUsersFromRoles_Result.cs">
-      <DependentUpon>CMS.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\aspnet_WebEvent_Events.cs">
-      <DependentUpon>CMS.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Blog.cs">
       <DependentUpon>CMS.tt</DependentUpon>
     </Compile>
@@ -285,6 +244,9 @@
       <DependentUpon>CMS.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Inventory.cs">
+      <DependentUpon>CMS.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Order.cs">
       <DependentUpon>CMS.tt</DependentUpon>
@@ -4416,6 +4378,7 @@
     <Content Include="Content\customer\webfonts\fa-brands-400.svg" />
     <Content Include="Content\customer\webfonts\fa-regular-400.svg" />
     <Content Include="Content\customer\webfonts\fa-solid-900.svg" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="Content\Uploads\616857123694837780.png" />
     <Content Include="Content\Uploads\Capture.JPG" />
     <Content Include="Content\Uploads\lienhe.jpg" />
@@ -5716,6 +5679,8 @@
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -5850,9 +5815,17 @@
     <Content Include="Views\Accounts\Index.cshtml" />
     <Content Include="Views\Accounts\Login.cshtml" />
     <Content Include="Views\Shared\Login.cshtml" />
+    <Content Include="Views\Checkout\CreateCustomerOrder.cshtml" />
+    <Content Include="Views\Checkout\Complete.cshtml" />
+    <Content Include="Views\Products\Inventory.cshtml" />
+    <Content Include="Views\Checkout\AddressAndPayment.cshtml" />
+    <Content Include="Views\Products\Index1.cshtml" />
+    <Content Include="Views\Products\_Index.cshtml" />
+    <Content Include="Views\ListProducts\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Client\View\" />
     <Folder Include="Content\customer\img\blog\latest-post\" />
     <Folder Include="Content\customer\img\product\blog\latest-post\" />
   </ItemGroup>

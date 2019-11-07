@@ -17,7 +17,23 @@ namespace CMSProject.Controllers
         // GET: Suppliers
         public ActionResult Index()
         {
-            return View(db.Suppliers.ToList());
+            //return View(db.Suppliers.ToList());
+            if (Session["ID"] == null)
+            {
+                return RedirectToAction("Login", "Accounts");
+            }
+            else
+            {
+                int checkRoles = Convert.ToInt32(Session["Roles"]);
+                if (checkRoles == 1)
+                {
+                    return View(db.Suppliers.ToList());
+                }
+                else
+                {
+                    return RedirectToAction("Error", "Home");
+                }
+            }
         }
 
         // GET: Suppliers/Details/5

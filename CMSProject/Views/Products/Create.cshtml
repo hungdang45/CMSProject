@@ -211,7 +211,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-5">
-                @*@Html.TextAreaFor(model => model.Description, new { @id = "editor", @class = "ckeditor", style = " rows=10, columns=10" })*@
+                @Html.TextAreaFor(model => model.Description, new { @id = "editor", @class = "ckeditor", style = " rows=10, columns=10" })
 
                 @*@Html.TextArea("editor", htmlAttributes: new { name = "editor", id = "editor", rows = "10", cols = "180" })*@
                 @*<textarea name="editor">@Html.Raw(Model.Description)</textarea>*@

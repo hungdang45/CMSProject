@@ -27,21 +27,13 @@ namespace CMSProject.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<aspnet_Applications> aspnet_Applications { get; set; }
-        public virtual DbSet<aspnet_Membership> aspnet_Membership { get; set; }
-        public virtual DbSet<aspnet_Paths> aspnet_Paths { get; set; }
-        public virtual DbSet<aspnet_PersonalizationAllUsers> aspnet_PersonalizationAllUsers { get; set; }
-        public virtual DbSet<aspnet_PersonalizationPerUser> aspnet_PersonalizationPerUser { get; set; }
-        public virtual DbSet<aspnet_Profile> aspnet_Profile { get; set; }
-        public virtual DbSet<aspnet_Roles> aspnet_Roles { get; set; }
-        public virtual DbSet<aspnet_SchemaVersions> aspnet_SchemaVersions { get; set; }
-        public virtual DbSet<aspnet_Users> aspnet_Users { get; set; }
-        public virtual DbSet<aspnet_WebEvent_Events> aspnet_WebEvent_Events { get; set; }
+        public virtual DbSet<Account> Accounts { get; set; }
         public virtual DbSet<Blog> Blogs { get; set; }
         public virtual DbSet<Cart> Carts { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Feedback> Feedbacks { get; set; }
+        public virtual DbSet<Inventory> Inventories { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<OrderDetail> OrderDetails { get; set; }
         public virtual DbSet<OrderReport> OrderReports { get; set; }
@@ -60,15 +52,14 @@ namespace CMSProject.Models
         public virtual DbSet<vw_aspnet_WebPartState_Paths> vw_aspnet_WebPartState_Paths { get; set; }
         public virtual DbSet<vw_aspnet_WebPartState_Shared> vw_aspnet_WebPartState_Shared { get; set; }
         public virtual DbSet<vw_aspnet_WebPartState_User> vw_aspnet_WebPartState_User { get; set; }
-        public virtual DbSet<Account> Accounts { get; set; }
     
-        public virtual ObjectResult<string> aspnet_AnyDataInTables(Nullable<int> tablesToCheck)
+        public virtual int aspnet_AnyDataInTables(Nullable<int> tablesToCheck)
         {
             var tablesToCheckParameter = tablesToCheck.HasValue ?
                 new ObjectParameter("TablesToCheck", tablesToCheck) :
                 new ObjectParameter("TablesToCheck", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("aspnet_AnyDataInTables", tablesToCheckParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("aspnet_AnyDataInTables", tablesToCheckParameter);
         }
     
         public virtual int aspnet_Applications_CreateApplication(string applicationName, ObjectParameter applicationId)
@@ -243,7 +234,7 @@ namespace CMSProject.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("aspnet_Membership_GetNumberOfUsersOnline", applicationNameParameter, minutesSinceLastInActiveParameter, currentTimeUtcParameter);
         }
     
-        public virtual ObjectResult<aspnet_Membership_GetPassword_Result> aspnet_Membership_GetPassword(string applicationName, string userName, Nullable<int> maxInvalidPasswordAttempts, Nullable<int> passwordAttemptWindow, Nullable<System.DateTime> currentTimeUtc, string passwordAnswer)
+        public virtual int aspnet_Membership_GetPassword(string applicationName, string userName, Nullable<int> maxInvalidPasswordAttempts, Nullable<int> passwordAttemptWindow, Nullable<System.DateTime> currentTimeUtc, string passwordAnswer)
         {
             var applicationNameParameter = applicationName != null ?
                 new ObjectParameter("ApplicationName", applicationName) :
@@ -269,10 +260,10 @@ namespace CMSProject.Models
                 new ObjectParameter("PasswordAnswer", passwordAnswer) :
                 new ObjectParameter("PasswordAnswer", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<aspnet_Membership_GetPassword_Result>("aspnet_Membership_GetPassword", applicationNameParameter, userNameParameter, maxInvalidPasswordAttemptsParameter, passwordAttemptWindowParameter, currentTimeUtcParameter, passwordAnswerParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("aspnet_Membership_GetPassword", applicationNameParameter, userNameParameter, maxInvalidPasswordAttemptsParameter, passwordAttemptWindowParameter, currentTimeUtcParameter, passwordAnswerParameter);
         }
     
-        public virtual ObjectResult<aspnet_Membership_GetPasswordWithFormat_Result> aspnet_Membership_GetPasswordWithFormat(string applicationName, string userName, Nullable<bool> updateLastLoginActivityDate, Nullable<System.DateTime> currentTimeUtc)
+        public virtual int aspnet_Membership_GetPasswordWithFormat(string applicationName, string userName, Nullable<bool> updateLastLoginActivityDate, Nullable<System.DateTime> currentTimeUtc)
         {
             var applicationNameParameter = applicationName != null ?
                 new ObjectParameter("ApplicationName", applicationName) :
@@ -290,10 +281,10 @@ namespace CMSProject.Models
                 new ObjectParameter("CurrentTimeUtc", currentTimeUtc) :
                 new ObjectParameter("CurrentTimeUtc", typeof(System.DateTime));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<aspnet_Membership_GetPasswordWithFormat_Result>("aspnet_Membership_GetPasswordWithFormat", applicationNameParameter, userNameParameter, updateLastLoginActivityDateParameter, currentTimeUtcParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("aspnet_Membership_GetPasswordWithFormat", applicationNameParameter, userNameParameter, updateLastLoginActivityDateParameter, currentTimeUtcParameter);
         }
     
-        public virtual ObjectResult<string> aspnet_Membership_GetUserByEmail(string applicationName, string email)
+        public virtual int aspnet_Membership_GetUserByEmail(string applicationName, string email)
         {
             var applicationNameParameter = applicationName != null ?
                 new ObjectParameter("ApplicationName", applicationName) :
@@ -303,10 +294,10 @@ namespace CMSProject.Models
                 new ObjectParameter("Email", email) :
                 new ObjectParameter("Email", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("aspnet_Membership_GetUserByEmail", applicationNameParameter, emailParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("aspnet_Membership_GetUserByEmail", applicationNameParameter, emailParameter);
         }
     
-        public virtual ObjectResult<aspnet_Membership_GetUserByName_Result> aspnet_Membership_GetUserByName(string applicationName, string userName, Nullable<System.DateTime> currentTimeUtc, Nullable<bool> updateLastActivity)
+        public virtual int aspnet_Membership_GetUserByName(string applicationName, string userName, Nullable<System.DateTime> currentTimeUtc, Nullable<bool> updateLastActivity)
         {
             var applicationNameParameter = applicationName != null ?
                 new ObjectParameter("ApplicationName", applicationName) :
@@ -324,10 +315,10 @@ namespace CMSProject.Models
                 new ObjectParameter("UpdateLastActivity", updateLastActivity) :
                 new ObjectParameter("UpdateLastActivity", typeof(bool));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<aspnet_Membership_GetUserByName_Result>("aspnet_Membership_GetUserByName", applicationNameParameter, userNameParameter, currentTimeUtcParameter, updateLastActivityParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("aspnet_Membership_GetUserByName", applicationNameParameter, userNameParameter, currentTimeUtcParameter, updateLastActivityParameter);
         }
     
-        public virtual ObjectResult<aspnet_Membership_GetUserByUserId_Result> aspnet_Membership_GetUserByUserId(Nullable<System.Guid> userId, Nullable<System.DateTime> currentTimeUtc, Nullable<bool> updateLastActivity)
+        public virtual int aspnet_Membership_GetUserByUserId(Nullable<System.Guid> userId, Nullable<System.DateTime> currentTimeUtc, Nullable<bool> updateLastActivity)
         {
             var userIdParameter = userId.HasValue ?
                 new ObjectParameter("UserId", userId) :
@@ -341,7 +332,7 @@ namespace CMSProject.Models
                 new ObjectParameter("UpdateLastActivity", updateLastActivity) :
                 new ObjectParameter("UpdateLastActivity", typeof(bool));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<aspnet_Membership_GetUserByUserId_Result>("aspnet_Membership_GetUserByUserId", userIdParameter, currentTimeUtcParameter, updateLastActivityParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("aspnet_Membership_GetUserByUserId", userIdParameter, currentTimeUtcParameter, updateLastActivityParameter);
         }
     
         public virtual int aspnet_Membership_ResetPassword(string applicationName, string userName, string newPassword, Nullable<int> maxInvalidPasswordAttempts, Nullable<int> passwordAttemptWindow, string passwordSalt, Nullable<System.DateTime> currentTimeUtc, Nullable<int> passwordFormat, string passwordAnswer)
@@ -636,7 +627,7 @@ namespace CMSProject.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("aspnet_PersonalizationAdministration_ResetUserState", count, applicationNameParameter, inactiveSinceDateParameter, userNameParameter, pathParameter);
         }
     
-        public virtual ObjectResult<byte[]> aspnet_PersonalizationAllUsers_GetPageSettings(string applicationName, string path)
+        public virtual int aspnet_PersonalizationAllUsers_GetPageSettings(string applicationName, string path)
         {
             var applicationNameParameter = applicationName != null ?
                 new ObjectParameter("ApplicationName", applicationName) :
@@ -646,7 +637,7 @@ namespace CMSProject.Models
                 new ObjectParameter("Path", path) :
                 new ObjectParameter("Path", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<byte[]>("aspnet_PersonalizationAllUsers_GetPageSettings", applicationNameParameter, pathParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("aspnet_PersonalizationAllUsers_GetPageSettings", applicationNameParameter, pathParameter);
         }
     
         public virtual int aspnet_PersonalizationAllUsers_ResetPageSettings(string applicationName, string path)
@@ -683,7 +674,7 @@ namespace CMSProject.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("aspnet_PersonalizationAllUsers_SetPageSettings", applicationNameParameter, pathParameter, pageSettingsParameter, currentTimeUtcParameter);
         }
     
-        public virtual ObjectResult<byte[]> aspnet_PersonalizationPerUser_GetPageSettings(string applicationName, string userName, string path, Nullable<System.DateTime> currentTimeUtc)
+        public virtual int aspnet_PersonalizationPerUser_GetPageSettings(string applicationName, string userName, string path, Nullable<System.DateTime> currentTimeUtc)
         {
             var applicationNameParameter = applicationName != null ?
                 new ObjectParameter("ApplicationName", applicationName) :
@@ -701,7 +692,7 @@ namespace CMSProject.Models
                 new ObjectParameter("CurrentTimeUtc", currentTimeUtc) :
                 new ObjectParameter("CurrentTimeUtc", typeof(System.DateTime));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<byte[]>("aspnet_PersonalizationPerUser_GetPageSettings", applicationNameParameter, userNameParameter, pathParameter, currentTimeUtcParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("aspnet_PersonalizationPerUser_GetPageSettings", applicationNameParameter, userNameParameter, pathParameter, currentTimeUtcParameter);
         }
     
         public virtual int aspnet_PersonalizationPerUser_ResetPageSettings(string applicationName, string userName, string path, Nullable<System.DateTime> currentTimeUtc)
@@ -750,7 +741,7 @@ namespace CMSProject.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("aspnet_PersonalizationPerUser_SetPageSettings", applicationNameParameter, userNameParameter, pathParameter, pageSettingsParameter, currentTimeUtcParameter);
         }
     
-        public virtual ObjectResult<Nullable<int>> aspnet_Profile_DeleteInactiveProfiles(string applicationName, Nullable<int> profileAuthOptions, Nullable<System.DateTime> inactiveSinceDate)
+        public virtual int aspnet_Profile_DeleteInactiveProfiles(string applicationName, Nullable<int> profileAuthOptions, Nullable<System.DateTime> inactiveSinceDate)
         {
             var applicationNameParameter = applicationName != null ?
                 new ObjectParameter("ApplicationName", applicationName) :
@@ -764,10 +755,10 @@ namespace CMSProject.Models
                 new ObjectParameter("InactiveSinceDate", inactiveSinceDate) :
                 new ObjectParameter("InactiveSinceDate", typeof(System.DateTime));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("aspnet_Profile_DeleteInactiveProfiles", applicationNameParameter, profileAuthOptionsParameter, inactiveSinceDateParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("aspnet_Profile_DeleteInactiveProfiles", applicationNameParameter, profileAuthOptionsParameter, inactiveSinceDateParameter);
         }
     
-        public virtual ObjectResult<Nullable<int>> aspnet_Profile_DeleteProfiles(string applicationName, string userNames)
+        public virtual int aspnet_Profile_DeleteProfiles(string applicationName, string userNames)
         {
             var applicationNameParameter = applicationName != null ?
                 new ObjectParameter("ApplicationName", applicationName) :
@@ -777,10 +768,10 @@ namespace CMSProject.Models
                 new ObjectParameter("UserNames", userNames) :
                 new ObjectParameter("UserNames", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("aspnet_Profile_DeleteProfiles", applicationNameParameter, userNamesParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("aspnet_Profile_DeleteProfiles", applicationNameParameter, userNamesParameter);
         }
     
-        public virtual ObjectResult<Nullable<int>> aspnet_Profile_GetNumberOfInactiveProfiles(string applicationName, Nullable<int> profileAuthOptions, Nullable<System.DateTime> inactiveSinceDate)
+        public virtual int aspnet_Profile_GetNumberOfInactiveProfiles(string applicationName, Nullable<int> profileAuthOptions, Nullable<System.DateTime> inactiveSinceDate)
         {
             var applicationNameParameter = applicationName != null ?
                 new ObjectParameter("ApplicationName", applicationName) :
@@ -794,7 +785,7 @@ namespace CMSProject.Models
                 new ObjectParameter("InactiveSinceDate", inactiveSinceDate) :
                 new ObjectParameter("InactiveSinceDate", typeof(System.DateTime));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("aspnet_Profile_GetNumberOfInactiveProfiles", applicationNameParameter, profileAuthOptionsParameter, inactiveSinceDateParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("aspnet_Profile_GetNumberOfInactiveProfiles", applicationNameParameter, profileAuthOptionsParameter, inactiveSinceDateParameter);
         }
     
         public virtual int aspnet_Profile_GetProfiles(string applicationName, Nullable<int> profileAuthOptions, Nullable<int> pageIndex, Nullable<int> pageSize, string userNameToMatch, Nullable<System.DateTime> inactiveSinceDate)
@@ -826,7 +817,7 @@ namespace CMSProject.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("aspnet_Profile_GetProfiles", applicationNameParameter, profileAuthOptionsParameter, pageIndexParameter, pageSizeParameter, userNameToMatchParameter, inactiveSinceDateParameter);
         }
     
-        public virtual ObjectResult<aspnet_Profile_GetProperties_Result> aspnet_Profile_GetProperties(string applicationName, string userName, Nullable<System.DateTime> currentTimeUtc)
+        public virtual int aspnet_Profile_GetProperties(string applicationName, string userName, Nullable<System.DateTime> currentTimeUtc)
         {
             var applicationNameParameter = applicationName != null ?
                 new ObjectParameter("ApplicationName", applicationName) :
@@ -840,7 +831,7 @@ namespace CMSProject.Models
                 new ObjectParameter("CurrentTimeUtc", currentTimeUtc) :
                 new ObjectParameter("CurrentTimeUtc", typeof(System.DateTime));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<aspnet_Profile_GetProperties_Result>("aspnet_Profile_GetProperties", applicationNameParameter, userNameParameter, currentTimeUtcParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("aspnet_Profile_GetProperties", applicationNameParameter, userNameParameter, currentTimeUtcParameter);
         }
     
         public virtual int aspnet_Profile_SetProperties(string applicationName, string propertyNames, string propertyValuesString, byte[] propertyValuesBinary, string userName, Nullable<bool> isUserAnonymous, Nullable<System.DateTime> currentTimeUtc)
@@ -927,13 +918,13 @@ namespace CMSProject.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("aspnet_Roles_DeleteRole", applicationNameParameter, roleNameParameter, deleteOnlyIfRoleIsEmptyParameter);
         }
     
-        public virtual ObjectResult<string> aspnet_Roles_GetAllRoles(string applicationName)
+        public virtual int aspnet_Roles_GetAllRoles(string applicationName)
         {
             var applicationNameParameter = applicationName != null ?
                 new ObjectParameter("ApplicationName", applicationName) :
                 new ObjectParameter("ApplicationName", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("aspnet_Roles_GetAllRoles", applicationNameParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("aspnet_Roles_GetAllRoles", applicationNameParameter);
         }
     
         public virtual int aspnet_Roles_RoleExists(string applicationName, string roleName)
@@ -1018,7 +1009,7 @@ namespace CMSProject.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("aspnet_Users_DeleteUser", applicationNameParameter, userNameParameter, tablesToDeleteFromParameter, numTablesDeletedFrom);
         }
     
-        public virtual ObjectResult<string> aspnet_UsersInRoles_AddUsersToRoles(string applicationName, string userNames, string roleNames, Nullable<System.DateTime> currentTimeUtc)
+        public virtual int aspnet_UsersInRoles_AddUsersToRoles(string applicationName, string userNames, string roleNames, Nullable<System.DateTime> currentTimeUtc)
         {
             var applicationNameParameter = applicationName != null ?
                 new ObjectParameter("ApplicationName", applicationName) :
@@ -1036,10 +1027,10 @@ namespace CMSProject.Models
                 new ObjectParameter("CurrentTimeUtc", currentTimeUtc) :
                 new ObjectParameter("CurrentTimeUtc", typeof(System.DateTime));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("aspnet_UsersInRoles_AddUsersToRoles", applicationNameParameter, userNamesParameter, roleNamesParameter, currentTimeUtcParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("aspnet_UsersInRoles_AddUsersToRoles", applicationNameParameter, userNamesParameter, roleNamesParameter, currentTimeUtcParameter);
         }
     
-        public virtual ObjectResult<string> aspnet_UsersInRoles_FindUsersInRole(string applicationName, string roleName, string userNameToMatch)
+        public virtual int aspnet_UsersInRoles_FindUsersInRole(string applicationName, string roleName, string userNameToMatch)
         {
             var applicationNameParameter = applicationName != null ?
                 new ObjectParameter("ApplicationName", applicationName) :
@@ -1053,10 +1044,10 @@ namespace CMSProject.Models
                 new ObjectParameter("UserNameToMatch", userNameToMatch) :
                 new ObjectParameter("UserNameToMatch", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("aspnet_UsersInRoles_FindUsersInRole", applicationNameParameter, roleNameParameter, userNameToMatchParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("aspnet_UsersInRoles_FindUsersInRole", applicationNameParameter, roleNameParameter, userNameToMatchParameter);
         }
     
-        public virtual ObjectResult<string> aspnet_UsersInRoles_GetRolesForUser(string applicationName, string userName)
+        public virtual int aspnet_UsersInRoles_GetRolesForUser(string applicationName, string userName)
         {
             var applicationNameParameter = applicationName != null ?
                 new ObjectParameter("ApplicationName", applicationName) :
@@ -1066,10 +1057,10 @@ namespace CMSProject.Models
                 new ObjectParameter("UserName", userName) :
                 new ObjectParameter("UserName", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("aspnet_UsersInRoles_GetRolesForUser", applicationNameParameter, userNameParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("aspnet_UsersInRoles_GetRolesForUser", applicationNameParameter, userNameParameter);
         }
     
-        public virtual ObjectResult<string> aspnet_UsersInRoles_GetUsersInRoles(string applicationName, string roleName)
+        public virtual int aspnet_UsersInRoles_GetUsersInRoles(string applicationName, string roleName)
         {
             var applicationNameParameter = applicationName != null ?
                 new ObjectParameter("ApplicationName", applicationName) :
@@ -1079,7 +1070,7 @@ namespace CMSProject.Models
                 new ObjectParameter("RoleName", roleName) :
                 new ObjectParameter("RoleName", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("aspnet_UsersInRoles_GetUsersInRoles", applicationNameParameter, roleNameParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("aspnet_UsersInRoles_GetUsersInRoles", applicationNameParameter, roleNameParameter);
         }
     
         public virtual int aspnet_UsersInRoles_IsUserInRole(string applicationName, string userName, string roleName)
@@ -1099,7 +1090,7 @@ namespace CMSProject.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("aspnet_UsersInRoles_IsUserInRole", applicationNameParameter, userNameParameter, roleNameParameter);
         }
     
-        public virtual ObjectResult<aspnet_UsersInRoles_RemoveUsersFromRoles_Result> aspnet_UsersInRoles_RemoveUsersFromRoles(string applicationName, string userNames, string roleNames)
+        public virtual int aspnet_UsersInRoles_RemoveUsersFromRoles(string applicationName, string userNames, string roleNames)
         {
             var applicationNameParameter = applicationName != null ?
                 new ObjectParameter("ApplicationName", applicationName) :
@@ -1113,7 +1104,7 @@ namespace CMSProject.Models
                 new ObjectParameter("RoleNames", roleNames) :
                 new ObjectParameter("RoleNames", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<aspnet_UsersInRoles_RemoveUsersFromRoles_Result>("aspnet_UsersInRoles_RemoveUsersFromRoles", applicationNameParameter, userNamesParameter, roleNamesParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("aspnet_UsersInRoles_RemoveUsersFromRoles", applicationNameParameter, userNamesParameter, roleNamesParameter);
         }
     
         public virtual int aspnet_WebEvent_LogEvent(string eventId, Nullable<System.DateTime> eventTimeUtc, Nullable<System.DateTime> eventTime, string eventType, Nullable<decimal> eventSequence, Nullable<decimal> eventOccurrence, Nullable<int> eventCode, Nullable<int> eventDetailCode, string message, string applicationPath, string applicationVirtualPath, string machineName, string requestUrl, string exceptionType, string details)

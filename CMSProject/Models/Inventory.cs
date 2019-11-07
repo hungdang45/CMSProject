@@ -10,16 +10,14 @@
 namespace CMSProject.Models
 {
     using System;
+    using System.Collections.Generic;
     
-    public partial class aspnet_Membership_GetPasswordWithFormat_Result
+    public partial class Inventory
     {
-        public string Column1 { get; set; }
-        public Nullable<int> Column2 { get; set; }
-        public string Column3 { get; set; }
-        public Nullable<int> Column4 { get; set; }
-        public Nullable<int> Column5 { get; set; }
-        public Nullable<bool> Column6 { get; set; }
-        public Nullable<System.DateTime> Column7 { get; set; }
-        public Nullable<System.DateTime> Column8 { get; set; }
+        public int InventoryID { get; set; }
+        public Nullable<int> InventoryQuantity { get; set; }
+        public Nullable<int> ProductID { get; set; }
+    
+        public virtual Product Product { get; set; }
     }
 }

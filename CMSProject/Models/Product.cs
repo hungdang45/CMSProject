@@ -30,7 +30,7 @@ namespace CMSProject.Models
         public Nullable<double> InputPrice { get; set; }
         public decimal Price { get; set; }
         public string ProductCode { get; set; }
-        public Nullable<int> Quantity { get; set; }
+        public Nullable<int> InventoryID { get; set; }
         public string Status { get; set; }
         public string Height { get; set; }
         public string Material { get; set; }
@@ -44,6 +44,7 @@ namespace CMSProject.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Cart> Carts { get; set; }
         public virtual Category Category { get; set; }
+        public virtual Inventory Inventory { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
         public virtual Supplier Supplier { get; set; }

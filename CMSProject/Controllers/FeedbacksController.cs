@@ -17,8 +17,24 @@ namespace CMSProject.Controllers
         // GET: Feedbacks
         public ActionResult Index()
         {
-            var feedbacks = db.Feedbacks.Include(f => f.Customer);
-            return View(feedbacks.ToList());
+            //var feedbacks = db.Feedbacks.Include(f => f.Customer);
+            //return View(feedbacks.ToList());
+            if (Session["ID"] == null)
+            {
+                return RedirectToAction("Login", "Accounts");
+            }
+            else
+            {
+                int checkRoles = Convert.ToInt32(Session["Roles"]);
+                if (checkRoles == 1)
+                {
+                    return View(db.Feedbacks.ToList());
+                }
+                else
+                {
+                    return RedirectToAction("Error", "Home");
+                }
+            }
         }
 
         // GET: Feedbacks/Details/5

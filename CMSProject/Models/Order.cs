@@ -32,6 +32,8 @@ namespace CMSProject.Models
         public string Username { get; set; }
         public bool SaveInfo { get; set; }
         public string Email { get; set; }
+        public string Phone { get; set; }
+        public System.DateTime Experation { get; set; }
     
         public virtual Customer Customer { get; set; }
         public virtual OrderReport OrderReport { get; set; }

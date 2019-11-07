@@ -17,8 +17,24 @@ namespace CMSProject.Controllers
         // GET: Orders
         public ActionResult Index()
         {
-            var orders = db.Orders.Include(o => o.Customer).Include(o => o.OrderReport);
-            return View(orders.ToList());
+            //var orders = db.Orders.Include(o => o.Customer).Include(o => o.OrderReport);
+            //return View(orders.ToList());
+            if (Session["ID"] == null)
+            {
+                return RedirectToAction("Login", "Accounts");
+            }
+            else
+            {
+                int checkRoles = Convert.ToInt32(Session["Roles"]);
+                if (checkRoles == 1)
+                {
+                    return View(db.Orders.ToList());
+                }
+                else
+                {
+                    return RedirectToAction("Error", "Home");
+                }
+            }
         }
 
         // GET: Orders/Details/5

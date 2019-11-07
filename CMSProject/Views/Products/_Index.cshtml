@@ -1,0 +1,43 @@
+﻿@using PagedList
+@using PagedList.Mvc;
+@model IPagedList<CMSProject.Models.Product>
+
+<table class="table">
+    <tr>
+        <th>ProductID</th>
+        <th>ProductName</th>
+        <th>Brand</th>
+        <th>Size</th>
+        <th>Height</th>
+
+        @foreach (var item in Model)
+        {
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Brand)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Size)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Height)
+            </td>
+
+        }
+    </tr>
+</table>
+
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+@Html.PagedListPager(Model, page => Url.Action("_Index", new { page}),
+    PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(
+        new AjaxOptions()
+        {
+            UpdateTargetId= "table-view"
+        }
+        )
+    )

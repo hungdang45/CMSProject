@@ -122,15 +122,12 @@ namespace CMSProject.Controllers
         [HttpPost]
         public ActionResult Login(Account account)
         {
-            var chkRole = db.Accounts.Where(x =>x.UserName == account.UserName && x.Password== account.Password && x.Status==1 && x.Roles==1).FirstOrDefault();
+            var chkRole = db.Accounts.Where(x =>x.UserName == account.UserName && x.Password== account.Password && x.Status==1).FirstOrDefault();
             if (chkRole != null)
             {
                 Session["ID"] = chkRole.AccountID;
+                Session["Roles"] = chkRole.Roles;
                 return RedirectToAction("Index", "Products");
-            }
-            else
-            {
-                return RedirectToAction("Error","Home");
             }
             return View();
         }

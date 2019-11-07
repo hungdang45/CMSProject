@@ -13,18 +13,20 @@
     <meta name="description" content="Trang Quản Trị">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="apple-touch-icon" href="apple-icon.png">
-    <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" href="~/Content/admin1/vendors/bootstrap/dist/css/bootstrap.min.css">
+    @*<link rel="apple-touch-icon" href="apple-icon.png">
+        <link rel="shortcut icon" href="favicon.ico">*@
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    @*<link rel="stylesheet" href="~/Content/admin1/vendors/bootstrap/dist/css/bootstrap.min.css">*@
     <link rel="stylesheet" href="~/Content/admin1/vendors/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="~/Content/admin1/vendors/themify-icons/css/themify-icons.css">
     <link rel="stylesheet" href="~/Content/admin1/vendors/flag-icon-css/css/flag-icon.min.css">
     <link rel="stylesheet" href="~/Content/admin1/vendors/selectFX/css/cs-skin-elastic.css">
     <link rel="stylesheet" href="~/Content/admin1/vendors/jqvmap/dist/jqvmap.min.css">
     <link rel="stylesheet" href="~/Content/admin1/assets/css/style.css">
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 
-    <link rel="icon" href="~/favicon2.ico" />
+    @*<link rel="icon" href="~/favicon2.ico" />*@
 
 
 </head>
@@ -72,13 +74,16 @@
                             @*<li><i class="fa fa-table"></i><a href="tables-basic.html">Basic Table</a></li>*@
                             <li>
                                 <i class="fa fa-table"></i>
-                                <a href="@Url.Action("Index", "Categories")" class="elements">Quản lí danh mục sản phẩm</a>
+                                <a href="/danh-sach-danh-muc")" class="elements">Quản lí danh mục sản phẩm</a>
                             </li>
                             <li>
                                 <i class="fa fa-table"></i>
-                                <a href="@Url.Action("Index", "Products")" class="elements">Quản lí sản phẩm</a>
+                                <a href="/danh-sach-san-pham")" class="elements">Quản lí sản phẩm</a>
                             </li>
-                            <li><i class="fa fa-table"></i><a href="tables-data.html">Quản lí kho</a></li>
+                            <li>
+                                <i class="fa fa-table"></i>
+                                <a href="@Url.Action("Inventory", "Products")">Quản lí kho</a>
+                            </li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children active dropdown">
@@ -86,7 +91,7 @@
                         <ul class="sub-menu children dropdown-menu">
                             <li>
                                 <i class="fa fa-table"></i>
-                                <a href="@Url.Action("Index", "Blogs")">Danh sách bài viết</a>
+                                <a href="/danh-sach-bai-viet" )" class="elements">Danh sách bài viết</a>
                             </li>
                             @*<li><i class="fa fa-table"></i><a href="tables-data.html">Quản lí danh mục sản phẩm</a></li>
                                 <li><i class="fa fa-table"></i><a href="tables-d    ata.html">Quản lí sản phẩm</a></li>
@@ -98,15 +103,18 @@
                         <ul class="sub-menu children dropdown-menu">
                             <li>
                                 <i class="menu-icon fa fa-th"></i>
-                                <a href="@Url.Action("Index", "Receipts")">Danh sách biên lai</a>
+                                @*<a href="@Url.Action("Index", "Receipts")">Danh sách biên lai</a>*@
+                                <a href="/danh-sach-bien-lai" )" class="elements">Danh sách biên lai</a>
                             </li>
                             <li>
                                 <i class="menu-icon fa fa-th"></i>
-                                <a href="@Url.Action("Index", "OrderReports")">Quản lí báo cáo</a>
-                            </li>
+                                @*<a href="@Url.Action("Index", "OrderReports")">Quản lí báo cáo</a>*@
+                                <a href="/danh-sach-bai-viet" )" class="elements">Báo cáo đơn hàng
+</li>
                             <li>
                                 <i class="menu-icon fa fa-th"></i>
-                                <a href="@Url.Action("Index", "Blogs")">Danh sách đơn hàng</a>
+                                @*<a href="@Url.Action("Index", "Orders")">Danh sách đơn hàng</a>*@
+                                <a href="/danh-sach-don-hang" )" class="elements">Danh sách đơn hàng</a>
                             </li>
                         </ul>
                     </li>
@@ -114,8 +122,11 @@
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Nhà phân phối  </a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-th"></i><a href="@Url.Action("Index", "Suppliers")">Danh sách nhà phân phối</a></li>
-
+                            <li>
+                                <i class="menu-icon fa fa-th"></i>
+                                @*<a href="@Url.Action("Index", "Suppliers")">Danh sách nhà phân phối</a>*@
+                                <a href="/danh-sach-nha-phan-phoi" )" class="elements">Danh sách nhà phân phối</a>
+                            </li>
                         </ul>
                     </li>
 
@@ -129,12 +140,12 @@
                             </ul>
                         </li>*@
                     <li>
-                        <a href="@Url.Action("Index", "Customers")">
-                            <i class="menu-icon fa fa-th"></i>Danh sách khách hàng
-                        </a>
+                        <i class="menu-icon fa fa-th">
+                            <a href="/danh-sach-khach-hang" )" class="elements">Danh sách khách hàng </a>
+                        </i>                       
                     </li>
                     <li>
-                        <a href="@Url.Action("Index", "Feedbacks")" class="elements">
+                        <a href="/danh-sach-feedback" )" class="elements">
                             <i class="menu-icon fa fa-th"></i>Feedbacks
                         </a>
                     </li>
@@ -264,33 +275,34 @@
                         <div class="user-menu dropdown-menu">
                             @*<a class="nav-link" href="#"><i class="fa fa-user"></i> My Profile</a>
 
-                            <a class="nav-link" href="#"><i class="fa fa-user"></i> Notifications <span class="count">13</span></a>*@
+        <a class="nav-link" href="#"><i class="fa fa-user"></i> Notifications <span class="count">13</span></a>*@
 
-                            <a class="nav-link" href="#"><i class="fa fa-cog"></i> Settings</a>
+                            @*<a class="nav-link" href="#"><i class="fa fa-cog"></i> Tài khoản</a>*@
+                            <a class="nav-link" href="@Url.Action("Index", "Accounts")"></i> Tài khoản</a>
+                            <a class="nav-link" href="@Url.Action("Login", "Accounts")"><i class="fa fa-power-off"></i> Đăng xuất</a>
 
-                            <a class="nav-link" href="#"><i class="fa fa-power-off"></i> Đăng xuất</a>
                         </div>
                     </div>
 
                     @*<div class="language-select dropdown" id="language-select">
-                        <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="language" aria-haspopup="true" aria-expanded="true">
-                            <i class="flag-icon flag-icon-us"></i>
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="language">
-                            <div class="dropdown-item">
-                                <span class="flag-icon flag-icon-fr"></span>
-                            </div>
-                            <div class="dropdown-item">
-                                <i class="flag-icon flag-icon-es"></i>
-                            </div>
-                            <div class="dropdown-item">
+                            <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="language" aria-haspopup="true" aria-expanded="true">
                                 <i class="flag-icon flag-icon-us"></i>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="language">
+                                <div class="dropdown-item">
+                                    <span class="flag-icon flag-icon-fr"></span>
+                                </div>
+                                <div class="dropdown-item">
+                                    <i class="flag-icon flag-icon-es"></i>
+                                </div>
+                                <div class="dropdown-item">
+                                    <i class="flag-icon flag-icon-us"></i>
+                                </div>
+                                <div class="dropdown-item">
+                                    <i class="flag-icon flag-icon-it"></i>
+                                </div>
                             </div>
-                            <div class="dropdown-item">
-                                <i class="flag-icon flag-icon-it"></i>
-                            </div>
-                        </div>
-                    </div>*@
+                        </div>*@
 
                 </div>
             </div>
@@ -323,64 +335,65 @@
             @RenderBody()
 
         </div>
-        @RenderSection("scripts", required: false)
 
 
         @*<div class="content mt-3">
-            <div class="animated fadeIn">
-                <div class="row">
+                <div class="animated fadeIn">
+                    <div class="row">
 
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <strong class="card-title">Data Table</strong>
-                            </div>
-                            <div class="card-body">
-                                <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
-                                    <thead>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Salary</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>$320,800</td>
-                                        </tr>
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <strong class="card-title">Data Table</strong>
+                                </div>
+                                <div class="card-body">
+                                    <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Position</th>
+                                                <th>Office</th>
+                                                <th>Salary</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Tiger Nixon</td>
+                                                <td>System Architect</td>
+                                                <td>Edinburgh</td>
+                                                <td>$320,800</td>
+                                            </tr>
 
-                                    </tbody>
-                                </table>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
+
+
                     </div>
-
-
-                </div>
-            </div><!-- .animated -->
-        </div><!-- .content -->*@
+                </div><!-- .animated -->
+            </div><!-- .content -->*@
 
 
     </div><!-- /#right-panel -->
     <!-- Right Panel -->
-
-    <script src="~/Content/admin1/vendors/jquery/dist/jquery.min.js"></script>
-    <script src="~/Content/admin1/vendors/popper.js/dist/umd/popper.min.js"></script>
-    <script src="~/Content/admin1/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="~/Content/admin1/assets/js/main.js"></script>
-    <script src="~/Content/admin1/vendors/chart.js/dist/Chart.bundle.min.js"></script>
-    <script src="~/Content/admin1/assets/js/dashboard.js"></script>
-    <script src="~/Content/admin1/assets/js/widgets.js"></script>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    @*<script src="~/Content/admin1/vendors/jquery/dist/jquery.min.js"></script>*@
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
     <script src="~/Content/admin1/vendors/jqvmap/dist/jquery.vmap.min.js"></script>
     <script src="~/Content/admin1/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
     <script src="~/Content/admin1/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
-    
-    
-    <script src="~/Scripts/ckeditor/ckeditor.js"></script>
+    @*<script src="~/Content/admin1/vendors/popper.js/dist/umd/popper.min.js"></script>*@
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    @*<script src="~/Content/admin1/vendors/bootstrap/dist/js/bootstrap.min.js"></script>*@
+    @*<script src="~/Content/admin1/assets/js/main.js"></script>*@
+    @*<script src="~/Content/admin1/vendors/chart.js/dist/Chart.bundle.min.js"></script>*@
+    @*<script src="~/Content/admin1/assets/js/dashboard.js"></script>*@
+    @*<script src="~/Content/admin1/assets/js/widgets.js"></script>*@
+
+
+    @*<script src="~/Scripts/ckeditor/ckeditor.js"></script>*@
     <script type="text/javascript">
         $(function () {
             // Document.ready -> link up remove event handler
@@ -397,7 +410,7 @@
             });
         });
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    @*<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>*@
     <script type="text/javascript">
         $(function () {
             // Document.ready -> link up remove event handler
@@ -415,6 +428,8 @@
         });
     </script>
 
+    <script src="~/Scripts/ckeditor/ckeditor.js"></script>
+    @RenderSection("scripts", required: false)
 </body>
 
 </html>

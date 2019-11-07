@@ -31,28 +31,29 @@
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.BlogTitle)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BlogContent)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Author)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateCreated)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Category.CategoryName)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.BlogID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.BlogID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.BlogID })
-            </td>
-        </tr>
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BlogTitle)
+        </td>
+        <td>
+            @*@Html.DisplayFor(modelItem => item.BlogContent)*@
+         @Html.Raw(item.BlogContent)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Author)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateCreated)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Category.CategoryName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.BlogID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.BlogID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.BlogID })
+        </td>
+    </tr>
     }
 
 </table>

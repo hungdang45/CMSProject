@@ -39,7 +39,17 @@
             @Html.DisplayFor(modelItem => item.Roles)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Status)
+            @if (item.Status == 1)
+            {
+                <text>Dang hoat dong</text>
+            }
+            else
+            {
+                if (item.Status == 2)
+                {
+                    <text>khong su dung</text>
+                }
+            }
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.AccountID }) |

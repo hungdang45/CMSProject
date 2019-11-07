@@ -17,8 +17,24 @@ namespace CMSProject.Controllers
         // GET: Blogs
         public ActionResult Index()
         {
-            var blogs = db.Blogs.Include(b => b.Category);
-            return View(blogs.ToList());
+            //var blogs = db.Blogs.Include(b => b.Category);
+            //return View(blogs.ToList());
+            if (Session["ID"] == null)
+            {
+                return RedirectToAction("Login", "Accounts");
+            }
+            else
+            {
+                int checkRoles = Convert.ToInt32(Session["Roles"]);
+                if (checkRoles == 1)
+                {
+                    return View(db.Blogs.ToList());
+                }
+                else
+                {
+                    return RedirectToAction("Error", "Home");
+                }
+            }
         }
 
         // GET: Blogs/Details/5
@@ -41,21 +57,34 @@ namespace CMSProject.Controllers
         {
             ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "CategoryName");
             return View();
+            //return RedirectToAction("Index");
         }
 
         // POST: Blogs/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
+        [HttpPost, ValidateInput(false)]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "BlogID,BlogTitle,CategoryID,BlogContent,Author,DateCreated")] Blog blog)
         {
-            if (ModelState.IsValid)
+            CMSEntities entities = new CMSEntities();
+            entities.Blogs.Add(new Blog
             {
-                db.Blogs.Add(blog);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+                BlogID = blog.BlogID,
+                BlogTitle = blog.BlogTitle,
+                BlogContent = blog.BlogContent,
+                Author = blog.Author,
+                DateCreated = DateTime.Now,
+                Category=blog.Category            
+            });
+            entities.SaveChanges();
+            //Original code
+            //if (ModelState.IsValid)
+            //{
+            //    db.Blogs.Add(blog);
+            //    db.SaveChanges();
+            //    return RedirectToAction("Index");
+            //}
 
             ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "CategoryName", blog.CategoryID);
             return View(blog);
