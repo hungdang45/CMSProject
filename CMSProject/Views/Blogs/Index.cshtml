@@ -33,7 +33,8 @@
     {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.BlogTitle)
+            <a href="/Blogs/Details/@item.BlogID" style="color:blue;">@item.BlogTitle</a>
+            @*@Html.DisplayFor(modelItem => item.BlogTitle)*@
         </td>
         <td>
             @*@Html.DisplayFor(modelItem => item.BlogContent)*@
@@ -50,7 +51,7 @@
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id = item.BlogID }) |
-            @Html.ActionLink("Details", "Details", new { id = item.BlogID }) |
+            @*@Html.ActionLink("Details", "Details", new { id = item.BlogID }) |*@
             @Html.ActionLink("Delete", "Delete", new { id = item.BlogID })
         </td>
     </tr>

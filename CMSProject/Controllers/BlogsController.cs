@@ -63,28 +63,29 @@ namespace CMSProject.Controllers
         // POST: Blogs/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost, ValidateInput(false)]
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "BlogID,BlogTitle,CategoryID,BlogContent,Author,DateCreated")] Blog blog)
         {
-            CMSEntities entities = new CMSEntities();
-            entities.Blogs.Add(new Blog
-            {
-                BlogID = blog.BlogID,
-                BlogTitle = blog.BlogTitle,
-                BlogContent = blog.BlogContent,
-                Author = blog.Author,
-                DateCreated = DateTime.Now,
-                Category=blog.Category            
-            });
-            entities.SaveChanges();
-            //Original code
-            //if (ModelState.IsValid)
+            //CMSEntities entities = new CMSEntities();
+            //entities.Blogs.Add(new Blog
             //{
-            //    db.Blogs.Add(blog);
-            //    db.SaveChanges();
-            //    return RedirectToAction("Index");
-            //}
+            //    BlogID = blog.BlogID,
+            //    BlogTitle = blog.BlogTitle,
+            //    BlogContent = blog.BlogContent,
+            //    Author = blog.Author,
+            //    DateCreated = DateTime.Now,
+            //    Category=blog.Category            
+            //});
+            //entities.SaveChanges();
+            //Original code
+            if (ModelState.IsValid)
+            {
+                blog.DateCreated = DateTime.Now;
+                db.Blogs.Add(blog);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
 
             ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "CategoryName", blog.CategoryID);
             return View(blog);
@@ -148,6 +149,7 @@ namespace CMSProject.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
 
         protected override void Dispose(bool disposing)
         {

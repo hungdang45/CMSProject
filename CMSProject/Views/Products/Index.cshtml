@@ -173,7 +173,7 @@
                                         <td>
                                             @Html.ActionLink("Edit", "Edit", new { id = item.ProductID }) |
                                             @Html.ActionLink("Details", "Details", new { id = item.ProductID }) |
-                                            @Html.ActionLink("Delete", "Delete", new { id = item.ProductID }) |
+                                            <button type="button" onclick="removeProduct(@item.ProductID)" class="btn btn-danger">X</button> |
                                             @Html.ActionLink("Add to cart", "AddToCart", "Carts", new { id = item.ProductID }, new { htmlAttributes = new { @data_toggle = "modal", @data_target = "#myModal" } })--> |
                                         
                                         </td>
@@ -261,5 +261,11 @@
             }
         });
     });
+    function removeProduct(id) {
+        var f = confirm("Xóa sản phẩm này?");
+        if (f == true) {
+            window.location.href = "/Products/RemoveProduct/" + id;
+        }
+    }
 </script>
 

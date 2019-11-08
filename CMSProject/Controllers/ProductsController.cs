@@ -314,6 +314,15 @@ namespace CMSProject.Controllers
             //return View(product);
         }
 
+
+        public ActionResult RemoveProduct(int id)
+        {
+            Product product = db.Products.Find(id);
+            db.Products.Remove(product);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
         // POST: Products/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
